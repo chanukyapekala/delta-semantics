@@ -1,0 +1,26 @@
+[project]
+name = "delta-ingestion-contract"
+version = "0.1.0"
+description = "Validate ingestion semantics (batch vs streaming) for Delta tables."
+authors = [
+    {name = "Chanukya Pekala",email = "chanukya.pekala@gmail.com"}
+]
+license = {text = "MIT License"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+pydantic = "^2.11.4"
+pyspark = "^3.5.5"
+pyyaml = "^6.0.2"
+
+[tool.poetry.scripts]
+validate-contract = "delta_ingestion_contract.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
