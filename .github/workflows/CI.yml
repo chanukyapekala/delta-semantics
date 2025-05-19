@@ -21,6 +21,19 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Java (required by Spark)
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Install Apache Spark
+        run: |
+          wget https://downloads.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz
+          tar -xzf spark-3.5.0-bin-hadoop3.tgz
+          echo "SPARK_HOME=$PWD/spark-3.5.0-bin-hadoop3" >> $GITHUB_ENV
+          echo "$PWD/spark-3.5.0-bin-hadoop3/bin" >> $GITHUB_PATH
+
       - name: Install Poetry
         run: |
           python -m pip install --upgrade pip
@@ -31,5 +44,11 @@ jobs:
           poetry env use python3.12
           poetry install
 
-      - name: Run tests
+      - name: Run unit tests
         run: poetry run pytest
+
+      - name: Run example: create_table.py
+        run: poetry run python examples/create_table.py
+
+      - name: Run example: validate_contract.py
+        run: poetry run python examples/validate_contract.py

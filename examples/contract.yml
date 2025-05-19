@@ -1,0 +1,6 @@
+table: delta.`/tmp/delta/customers`
+mode: streaming
+owner: data-team
+streaming:
+checkpoint_path: /tmp/delta/checkpoints/customers
+schema_version: 'v1'
