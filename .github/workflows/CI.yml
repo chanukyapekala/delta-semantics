@@ -30,10 +30,10 @@ jobs:
 
       - name: Install Apache Spark
         run: |
-          wget https://downloads.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz
-          tar -xzf spark-3.5.0-bin-hadoop3.tgz
-          echo "SPARK_HOME=$PWD/spark-3.5.0-bin-hadoop3" >> $GITHUB_ENV
-          echo "$PWD/spark-3.5.0-bin-hadoop3/bin" >> $GITHUB_PATH
+          wget https://archive.apache.org/dist/spark/spark-3.4.3/spark-3.4.3-bin-hadoop3.tgz
+          tar -xzf spark-3.4.3-bin-hadoop3.tgz
+          echo "SPARK_HOME=$PWD/spark-3.4.3-bin-hadoop3" >> $GITHUB_ENV
+          echo "$PWD/spark-3.4.3-bin-hadoop3/bin" >> $GITHUB_PATH
 
       - name: Install Poetry
         run: |
