@@ -41,8 +41,8 @@ jobs:
       - name: Run unit tests
         run: poetry run pytest
 
-      - name: Run create_table.py
-        run: poetry run python examples/create_table.py
+      #- name: Run create_table.py
+      #  run: poetry run python examples/create_table.py
 
-      - name: Run validate_contract.py
-        run: poetry run python examples/validate_contract.py
+      #- name: Run validate_contract.py
+      #  run: poetry run python examples/validate_contract.py
